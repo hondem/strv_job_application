@@ -24,6 +24,7 @@ script:
 env:
   global:
   - NODE_ENV=test
+  - DB_URI=postgresql://postgres@127.0.0.1:5433/strvjobapplication_test
 before_deploy: rm -rf node_modules
 deploy:
   matrix:
