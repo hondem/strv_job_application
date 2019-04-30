@@ -1,17 +1,11 @@
-'use strict'
-
 module.exports = {
   recursive: true,
   slow: 1000,
   timeout: 2000,
   color: true,
-  spec: [
-    'tests', 
-    'src/**/*.test.js'
-  ],
+  reporter: 'spec',
+  spec: ['tests', 'src/**/*.test.js'],
   ui: 'bdd',
-  exit: true,
-  file: [
-    './tests/bootstrap.test.js'
-  ]
+  file: ['tests/bootstrap.test.js'],
+  exit: true
 }

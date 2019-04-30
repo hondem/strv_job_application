@@ -17,6 +17,12 @@ const authorizationMiddleware = require('../middleware/auth')
 /**
  * Defining routes
  */
+router.get('/', (ctx) => {
+  ctx.body = {
+    "My API of version: ": "1.0.0"
+  }
+})
+
 router.post('/users/signup', usersController.signUp)
 router.post('/users/login', usersController.login)
 

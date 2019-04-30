@@ -2,6 +2,7 @@
 
 const Koa = require('koa')
 const koaBody = require('koa-bodyparser')
+const koaCompress = require('koa-compress')
 const koaCors = require('kcors')
 const config = require('./config')
 const logger = require('./utils/logger')
@@ -18,6 +19,7 @@ const app = new Koa()
 
 app.use(logRequest)
 
+app.use(koaCompress())
 app.use(koaCors())
 app.use(koaBody())
 
