@@ -1,7 +1,6 @@
 'use strict'
 
 const User = require('../database/models/user')
-const errors = require('../utils/errors')
 
 const getAll = () => {
   return User.query()

@@ -20,11 +20,12 @@ before_script:
 - docker-compose up -d
 - docker ps
 script:
-- npm test
+- npm run test
+after_success:
 env:
   global:
-    - NODE_ENV=tests
-    - DB_URI=postgres://postgres:testpassword@localhost:5433/strv-job-test-db
+  - NODE_ENV=tests
+  - DB_URI=postgres://postgres:testpassword@127.0.0.1:5433/strv-job-test-db
 before_deploy: rm -rf node_modules
 deploy:
   matrix:

@@ -1,22 +1,22 @@
 'use strict'
 
-const knex = require('knex')
-const knexFile = require('../config/knexfile')
 const { Model } = require('objection')
+const knexLib = require('knex')
+const config = require('../config/knexfile')
 
-const knexInstance = knex(knexFile)
+const knex = knexLib(config)
+const start = async () => {
+  try {
+    // We test if connection was successful
+    await knex.raw("SELECT 'test connection';")
 
-const start = async() => {
-  try{
-    await knexInstance.raw("SELECT 'users';")
-
-    Model.knex(knexInstance)
-  } catch(err){
+    Model.knex(knex)
+  } catch (err) {
     throw err
   }
 }
 
 module.exports = {
   start,
-  knexInstance
+  knexInstance: knex,
 }

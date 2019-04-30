@@ -8,6 +8,19 @@ module.exports = env => ({
   env,
   server: {
     port: process.env.PORT || 5000,
+    
+    cors: {
+      origin: '*',
+      exposeHeaders: [
+        'Authorization',
+        'Content-Language',
+        'Content-Length',
+        'Content-Type',
+        'Date',
+        'ETag',
+      ],
+      maxAge: 3600,
+    },
   },
   logger: {
     prettyPrint: true,

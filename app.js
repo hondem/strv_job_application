@@ -2,6 +2,7 @@
 
 const Koa = require('koa')
 const koaBody = require('koa-bodyparser')
+const koaCors = require('kcors')
 const config = require('./config')
 const logger = require('./utils/logger')
 const database = require('./database')
@@ -16,6 +17,8 @@ const errors = require('./middleware/errors')
 const app = new Koa()
 
 app.use(logRequest)
+
+app.use(koaCors())
 app.use(koaBody())
 
 app.use(errors.errorsMiddleware)
