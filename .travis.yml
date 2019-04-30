@@ -19,7 +19,6 @@ before_script:
 - sudo service postgresql stop
 - docker-compose up -d
 - docker ps
-- node make-build-info.js
 script:
 - npm test
 env:
