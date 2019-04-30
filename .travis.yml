@@ -17,6 +17,8 @@ install:
 - npm install
 before_script:
 - sudo service postgresql stop
+- docker-compose down
+- docker-compose stop
 - docker-compose up -d
 - docker ps
 script:
@@ -24,7 +26,7 @@ script:
 env:
   global:
   - NODE_ENV=tests
-  - DB_URI=postgresql://postgres@127.0.0.1:5433/strvjobapplication_test
+  - DB_URI=postgresql://postgres@localhost:5433/strvjobapplication_test
 before_deploy: rm -rf node_modules
 deploy:
   matrix:
