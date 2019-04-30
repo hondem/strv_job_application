@@ -4,7 +4,8 @@
  * Basic config file for app
  */
 
-module.exports = {
+module.exports = env => ({
+  env,
   server: {
     port: process.env.PORT || 5000,
   },
@@ -33,4 +34,4 @@ module.exports = {
     storageBucket: process.env.FB_STORAGE_BUCKET || "strv-job-application.appspot.com",
     messagingSenderId: process.env.FB_MESSAGING_SENDER_ID || "627906288181"
   }
-}
+})

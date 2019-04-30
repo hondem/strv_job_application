@@ -3,6 +3,7 @@
 'use strict'
 
 const env = process.env.NODE_ENV || 'local'
+const _ = require('lodash')
 
 if (env === 'local') {
   require('dotenv').config({ silent: false })
@@ -10,9 +11,8 @@ if (env === 'local') {
 
 const envConfPath = `./env/${env}`
 const envConf = require(envConfPath)
-const defaultConfig = require('./default')
+const defaultConfig = require('./default')(env)
 
-const _ = require('lodash')
 
 const resConf = _.merge(defaultConfig, envConf)
 
