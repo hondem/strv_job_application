@@ -3,6 +3,8 @@
 const path = require('path')
 const config = require('./index')
 
+console.log("USED CONFIG: ", config)
+
 module.exports = {
   client: 'pg',
   connection: config.db.uri,
