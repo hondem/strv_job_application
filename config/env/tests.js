@@ -1,9 +1,12 @@
 'use strict'
 
 module.exports = {
-  db: {
-    uri: process.env.DB_URI || 'postgresql://postgres@localhost:5433/strvjobapplication_test'
-  },
+  // db: {
+  //   host : '127.0.0.1',
+  //   user : 'postgres',
+  //   database : 'strvjobapplication_test',
+  //   password : ''
+  // },
   logger: {
     enabled: false
   }

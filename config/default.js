@@ -12,7 +12,10 @@ module.exports = {
     prettyPrint: true,
   },
   db: {
-    uri: 'postgresql://postgres@localhost:5432/strvjobapplication'
+    host : '127.0.0.1',
+    user : 'postgres',
+    database : 'strvjobapplication',
+    password : ''
   },
   security: {
     saltRounds: 10,

@@ -2,6 +2,9 @@
 
 module.exports = {
   db: {
-    uri: process.env.DB_URI
+    host : '127.0.0.1',
+    user : 'postgres',
+    database : 'strvjobapplication',
+    password : ''
   }
 }
