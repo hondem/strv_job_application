@@ -5,7 +5,7 @@ const config = require('./index')
 
 module.exports = {
   client: 'pg',
-  connection: config.db,
+  connection: config.db.uri,
   pool: {
     min: 1,
     max: 10,
