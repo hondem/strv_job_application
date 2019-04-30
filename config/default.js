@@ -12,7 +12,7 @@ module.exports = {
     prettyPrint: true,
   },
   db: {
-    uri: 'postgresql://postgres@localhost/strv-job-db'
+    uri: 'postgres://postgres@localhost/strv-job-db'
   },
   security: {
     saltRounds: 10,
