@@ -1,0 +1,19 @@
+version: '3'
+services:
+  database:
+    image: postgres
+    container_name: strv_job_application
+    environment:
+      POSTGRES_DB: strvjobapplication
+      POSTGRES_USER: postgres
+    ports:
+      - 5432:5432
+
+  database_test:
+    image: postgres
+    container_name: strv_job_application_test
+    environment:
+      POSTGRES_DB: strvjobapplication_test
+      POSTGRES_USER: postgres
+    ports:
+      - 5433:5432
