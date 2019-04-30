@@ -4,7 +4,7 @@ module.exports = {
   timeout: 2000,
   color: true,
   reporter: 'spec',
-  spec: ['tests', 'src/**/*.test.js'],
+  spec: ['./**/*.test.js'],
   ui: 'bdd',
   file: ['tests/bootstrap.test.js'],
   exit: true
