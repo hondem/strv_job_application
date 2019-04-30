@@ -15,5 +15,6 @@ services:
     environment:
       POSTGRES_DB: strv-job-test-db
       POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: testpassword
     ports:
       - 5433:5432

@@ -25,6 +25,8 @@ script:
 - npm test
 env:
   global:
+    - NODE_ENV=tests
+    - DB_URI=postgresql://postgres:testpassword@localhost:5433/strv-job-test-db
 before_deploy: rm -rf node_modules
 deploy:
   matrix:
