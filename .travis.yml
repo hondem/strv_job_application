@@ -23,7 +23,7 @@ script:
 - npm test
 env:
   global:
-  - NODE_ENV=test
+  - NODE_ENV=tests
   - DB_URI=postgresql://postgres@127.0.0.1:5433/strvjobapplication_test
 before_deploy: rm -rf node_modules
 deploy:
