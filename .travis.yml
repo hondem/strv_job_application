@@ -1,0 +1,42 @@
+sudo: required
+dist: trusty
+language: node_js
+branches:
+  only:
+  - master
+node_js:
+- '11.12'
+services:
+- docker
+cache:
+  directories:
+  - node_modules
+before_install:
+- npm i -g npm@$(node -p "require('./package').engines.npm")
+install:
+- npm install
+before_script:
+- sudo service postgresql stop
+- docker-compose up -d
+- docker ps
+- node make-build-info.js
+script:
+- npm test
+env:
+  global:
+  - NODE_ENV=test
+before_deploy: rm -rf node_modules
+deploy:
+  matrix:
+  - provider: heroku
+    skip_cleanup: true
+    app:
+      master: strv-addressbook-demel-jan
+    on:
+      branch:
+      - master
+      repo: hondem/strv_job_application
+    api_key:
+      secure: 
+  api_key:
+    secure: n6BddiYqhDQByqBNAnaI/eHdqJwCAwwh0r8D7XM2qxsBrIWVS2kpktdLoDpQ8vn9TVt3DR/QarL7R5codaD8YWX6DN7nFyw6dKkfxSQtVQsEpKEu1weWJemQHmcL5zysdlNkO371HW/OzKaM+Loe4EkfQMhEoQQRjbr70apnwC3b+Bqt+7GlIIq/D7WgRgh1a5xYYM+PFcbbK5MAf1aFXoap/QI5PJuF/hn1P0BRR48iUjQgVHmES/0xQhpwF5Er3LEzhOmdxU6usYdIzcOUnAm42v/FHW8YXqSPT5RcdiiBbUINEGSB2YiIRcR+0wn02i7ECXCcpF67Z1zs6iX1Hguw9Qpd4xR7LqVeXtr75c0p3TnsYWPRZNbFaen9F5wOoHX0o16zTbVX+4+DRvbbzKSNYVBnEABzc0aYkFcVxy4sRcCDUqw8i/nE7/zcOKOgQsYHIllp3OYDgg2DIXF+LJFFYnGfoLpasSbFLtEJ5njZuczuk6NY4GwuCQyj+rKtcRZoOTf/AWJKeOYiHA9ZgHOOT3QZKUBA1/Fzd0xFDd6RFGi8n98gtMtuMwOqYlB/srtjDDr2pfYe5ILMUzFG2OJnvjImA1mGHaDyfIyH/Gk4CPzjFuQtqz/GK8XsB/N5F5mddCKomnJP/gZE6R2SSjc32XGDYdHmRaJfZA2Uftw=
