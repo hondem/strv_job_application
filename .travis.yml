@@ -15,8 +15,8 @@ install:
 before_script:
 - sudo service postgresql stop
 - docker-compose up -d
-- docker ps
 script:
+- docker ps
 - npm run test
 after_success:
 env:
