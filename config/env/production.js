@@ -2,6 +2,6 @@
 
 module.exports = {
   db: {
-    uri: 'postgres://postgres@localhost/strv-job-db'
+    uri: process.env.DATABASE_URL
   }
 }

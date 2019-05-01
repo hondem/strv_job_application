@@ -26,7 +26,7 @@ module.exports = env => ({
     prettyPrint: true,
   },
   db: {
-    uri: 'postgres://postgres@localhost/strv-job-db'
+    uri: process.env.DATABASE_URL || 'postgres://postgres@localhost/strv-job-db'
   },
   security: {
     saltRounds: 10,
