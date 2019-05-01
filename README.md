@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/hondem/strv_job_application.svg?branch=master)](https://travis-ci.org/hondem/strv_job_application)
 # Documentation
 ## API endpoints
 ### `POST:/users/signup`
