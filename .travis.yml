@@ -10,11 +10,10 @@ services:
 - docker
 before_install:
 - npm i -g npm@$(node -p "require('./package').engines.npm")
-install:
-- npm install
-before_script:
 - sudo service postgresql stop
 - docker-compose up -d
+install:
+- npm install
 script:
 - docker ps
 - npm run test
